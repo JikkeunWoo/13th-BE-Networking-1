@@ -10,12 +10,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@RestControllerAdvice
+//@RestControllerAdvice
 public class GlobalExceptionHandler {
 
 	// 처리되지 않은 모든 예외를 잡는 핸들러
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorResponse> handleAllException(Exception e, HttpServletRequest request) {
+		e.printStackTrace();
 		log.error("처리되지 않은 예외 발생: ", e);
 		log.error("에러가 발생한 지점 {}, {}", request.getMethod(), request.getRequestURI());
 		ErrorResponse errorResponse = ErrorResponse.of(
