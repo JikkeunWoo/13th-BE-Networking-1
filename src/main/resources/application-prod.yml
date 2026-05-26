@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    # DB_HOST는 나중에 docker-compose에서 주입.
+    url: jdbc:mysql://${DB_HOST}:3306/cotato_db?useSSL=false&serverTimezone=UTC&characterEncoding=UTF-8&allowPublicKeyRetrieval=true
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false # 운영 환경에서는 로그를 줄이기 위해 끔.
